@@ -1,0 +1,193 @@
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+	width: 100vw;
+  background: linear-gradient(135deg, #695d80, #2c1258); // Tonos morados más suaves
+  font-family: "Poppins", sans-serif;
+
+  .auth-form {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: relative;
+    border: 3px solid transparent;
+    animation: borderGlow 3s infinite linear; // Animación de borde
+
+    @keyframes borderGlow {
+      0% {
+        border-image-source: linear-gradient(45deg, #9575cd, #b39ddb);
+        border-image-slice: 1;
+      }
+      50% {
+        border-image-source: linear-gradient(45deg, #b39ddb, #d1c4e9);
+        border-image-slice: 1;
+      }
+      100% {
+        border-image-source: linear-gradient(45deg, #9575cd, #b39ddb);
+        border-image-slice: 1;
+      }
+    }
+
+    h2 {
+      font-size: 22px;
+      color: white;
+      font-weight: 600;
+    }
+
+    // Todos los elementos de entrada y botones tienen el mismo tamaño
+    input, button {
+      width: 100%; // Asegura que todos los elementos ocupen el 100% del ancho disponible
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 16px;
+      margin: 0; // Elimina márgenes para que se alineen perfectamente
+    }
+
+    input {
+      background-color: rgba(255, 255, 255, 0.3);
+      color: white;
+      border: 2px solid transparent;
+      transition: 0.3s;
+      outline: none;
+
+      &::placeholder {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      &:focus {
+        border-color: #d1c4e9;
+        box-shadow: 0 0 10px rgba(209, 196, 233, 0.6);
+      }
+    }
+
+    button {
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+      position: relative;
+      overflow: hidden;
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(209, 196, 233, 0.5);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: -100%;
+        background: rgba(255, 255, 255, 0.2);
+        transition: left 0.4s ease-in-out;
+      }
+
+      &:hover::after {
+        left: 100%;
+      }
+    }
+
+    .login-btn {
+      background: linear-gradient(45deg, #9575cd, #b39ddb);
+      color: white;
+    }
+
+    .register-btn {
+      background: rgba(255, 255, 255, 0.3);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .google-btn {
+      background: white;
+      color: #444;
+      border: 1px solid #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+
+	.welcome-message {
+		background: rgba(255, 255, 255, 0.1);
+		padding: 20px;
+		border-radius: 12px;
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+		text-align: center;
+		width: 400px;
+		margin: auto;
+		
+		h2 {
+			color: #ffffff;
+			font-size: 24px;
+			margin-bottom: 10px;
+		}
+	
+		p {
+			color: #b3b3b3;
+			font-size: 16px;
+		}
+	
+		.user-info-table {
+			width: 100%;
+			margin-top: 20px;
+			border-collapse: collapse;
+	
+			th, td {
+				padding: 12px;
+				text-align: left;
+				border-bottom: 1px solid #ddd;
+				font-size: 14px;
+			}
+	
+			th {
+				background-color: #7b61ff;
+				color: white;
+			}
+	
+			tr:nth-child(even) {
+				background-color: #f9f9f9;
+			}
+	
+			tr:hover {
+				background-color: #f1f1f1;
+			}
+	
+			td {
+				color: #bbb;
+			}
+		}
+	
+		button {
+			margin-top: 20px;
+			background: linear-gradient(45deg, #9575cd, #b39ddb);
+			color: white;
+			padding: 12px 20px;
+			border: none;
+			border-radius: 8px;
+			font-size: 16px;
+			cursor: pointer;
+			transition: 0.3s ease-in-out;
+	
+			&:hover {
+				transform: translateY(-3px);
+				box-shadow: 0 5px 15px rgba(209, 196, 233, 0.5);
+			}
+		}
+	}
+	
+	
+}

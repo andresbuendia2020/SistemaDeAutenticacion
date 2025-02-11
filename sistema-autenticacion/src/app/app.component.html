@@ -1,3 +1,42 @@
-<button (click)="login()">Login</button>
-    <button (click)="register()">Register</button>
-    <button (click)="logout()">Logout</button>
+<div class="auth-container">
+    <!-- Formulario de Inicio de Sesión -->
+    <div *ngIf="!user" class="auth-form">
+      <h2>Iniciar Sesión</h2>
+      <input style="width: 91%;" [(ngModel)]="email" placeholder="Correo electrónico" type="email" />
+      <input style="width: 91%;" [(ngModel)]="password" placeholder="Contraseña" type="password" />
+      <button (click)="login()">Iniciar Sesión</button>
+  
+      <!-- Botón de Inicio de Sesión con Google -->
+      <button class="google-btn" (click)="loginWithGoogle()">
+        Iniciar Sesión con Google
+      </button>
+    </div>
+  
+    <!-- Mensaje de Bienvenida y Botón de Cerrar Sesión -->
+    <div *ngIf="user" class="welcome-message">
+        <h2>Bienvenido, {{ user.displayName || 'Usuario' }}!</h2>
+        <p>¡Tu cuenta ha sido validada correctamente!</p>
+      
+        <!-- Tabla de información del usuario -->
+        <table class="user-info-table">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Correo Electrónico</th>
+              <th>Token</th>
+              <th>Estado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{ user.displayName }}</td>
+              <td>{{ user.email  }}</td>
+              <td>{{ token }}</td>
+              <td>Validado</td>
+            </tr>
+          </tbody>
+        </table>
+      
+        <button (click)="logout()">Cerrar Sesión</button>
+      </div>      
+  </div>

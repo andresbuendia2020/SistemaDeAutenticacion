@@ -1,14 +1,14 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
+import { provideRouter } from '@angular/router';
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { environment } from './environment/environment';
 import { provideAuth, getAuth } from '@angular/fire/auth';
-import { environment } from './environment/environment'
-
 
 bootstrapApplication(AppComponent, {
   providers: [
+    provideRouter([]),
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
-    provideAuth(() => getAuth())
-  ]
-}).catch(err => console.error(err));
+    provideAuth(() => getAuth()),
+  ],
+}).catch((err) => console.error(err));
